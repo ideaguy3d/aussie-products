@@ -1,0 +1,7 @@
+<div class="container">
+	<h1>PLEASE LOG IN:</h1>
+	<h2 class="text-danger bg-danger" ng-if="login.error">{{login.error}}</h2>
+	<input type="email" placeholder="Email" ng-model="login.email">
+	<input type="password" placeholder="Password" ng-model="login.password">
+	<button ng-click="login.apcLogin()">Login</button>
+</div>

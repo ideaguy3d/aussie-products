@@ -1,0 +1,79 @@
+<br>
+<!-- START: AngularJS app section -->
+<section id="ng-app1" ng-cloak ng-app="ap-slider" ng-controller="apcCoreCtrl">
+	<br>
+
+	<!-----------ADMIN SIDE-------------->
+	<!-- Edit product slider prototype -->
+	<div id="j-product-slider-edit" ng-controller="apSliderEditCtrl" ng-if="!showSlider"
+	     ng-include="'design/views/product.slider.edit.view.html'"></div>
+
+
+	<!-------------CLIENT SIDE-------------->
+	<!-- Primary product slider prototype -->
+	<div id="j-product-slider" ng-controller="apSliderCtrl" ng-if="showSlider"
+	     ng-include="'design/views/product.slider.view.html'"></div>
+
+	<hr>
+	<!-------------------------------------------------------------->
+	<!-- random trial&error code to get everything up and running -->
+	<!-------------------------------------------------------------->
+	<input type="text" ng-model="data.productDescription">
+	<h4>Product Description: {{ data.productDescription }}</h4>
+	<h1>{{2+2}} = 2+2</h1>
+	<h2>{{data.key1}}</h2>
+
+	<!-- RealTimeDB test1 area -->
+	<ul>
+		<li ng-repeat="message in messages">
+			<!-- edit message -->
+			<label for="ap-message">Edit Message</label>
+			<input id="ap-message" type="text" ng-model="message.text" ng-change="messages.$save(message)">
+			<p>{{message}}</p>
+			<!-- delete message -->
+			<button ng-click="messages.$remove(message)">Delete Message</button>
+			<br>[ Message: {{ message.text }} ]
+		</li>
+	</ul>
+
+	<!-- create a new message -->
+	<form ng-submit="addMessage()">
+		<label for="new-message">Add a Message Now.</label>
+		<input id="new-message" type="text" ng-model="newMessageText">
+		<button type="submit">Add Message</button>
+	</form>
+</section>
+<!-- END: AngularJS app section: -->
+
+<!-- Vendor Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+<script type="text/javascript">
+    // Initialize Firebase... will eventually get this information from a secured php backend
+    var config = {
+        apiKey: "AIzaSyBq6mpowidyq3CR5CEJgZO7-vWfx7WXE8w",
+        authDomain: "product-slider.firebaseapp.com",
+        databaseURL: "https://product-slider.firebaseio.com",
+        projectId: "product-slider",
+        storageBucket: "product-slider.appspot.com",
+        messagingSenderId: "707544519915"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<!-- Custom JavaScript -->
+<script src="design/js/apc.app.js"></script>
+<script src="design/js/product.group.ser.js"></script>
+<script src="design/js/core.ctrl.js"></script>
+<script src="design/js/product.slider.ctrl.js"></script>
+<script src="design/js/product.slider.edit.ctrl.js"></script>
+<script src="design/js/product.comp.js"></script>
+<script src="design/js/product.card.edit.comp.js"></script>
+<script src="design/js/product.group.incremented.edit.comp.js"></script>
+<script src="design/js/product.items.comp.js"></script>
+<script src="design/js/product.card.incremented.edit.comp.js"></script>
+<script src="design/js/comp.product.card.js"></script>
+

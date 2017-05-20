@@ -5,8 +5,8 @@
 (function () {
     "use strict";
     var app = angular.module('ap-slider');
-    app.controller('apSliderEditCtrl', ['$scope', '$timeout', 'jProductGroup1Data',
-        function ($scope, $timeout, jProductGroup1Data) {
+    app.controller('apcSliderEditCtrl', ['$scope', '$timeout', 'jProductGroup1Data', 'requireAuth', 'Auth',
+        function ($scope, $timeout, jProductGroup1Data, requireAuth, Auth) {
             $scope.apcRow1Group1 = jProductGroup1Data.Row1Group1;
             $scope.apcRow1Group2 = jProductGroup1Data.Row1Group2;
             $scope.apcRow1Group3 = jProductGroup1Data.Row1Group3;
@@ -53,6 +53,10 @@
             };
 
             //-- public functions:
+            $scope.apcSignout = function(){
+                Auth.$signOut();
+            };
+
             $scope.updateActiveArea = function (index) {
                 switch (index) {
                     case 0:

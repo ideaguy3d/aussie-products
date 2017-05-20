@@ -7,6 +7,7 @@
 
     app.run(["$rootScope", "$location", function($rootScope, $location) {
         $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+            console.log("an error was successfully picked up");
             if (error === "AUTH_REQUIRED") {
                 $location.path("/");
             }
@@ -28,10 +29,16 @@
                 })
                 .when('/edit', {
                     templateUrl: 'design/js/views/view.edit.products.html',
+                    controller: 'apcSliderEditCtrl',
                     resolve: {
-                        "requireAuth": ['Auth', function(Auth){
-                            Auth.$requireSignIn();
-                            console.log("apc - auth should be required for this route");
+                        "requireAuth": ['Auth', '$location', function(Auth, $location){
+                            Auth.$requireSignIn().then(function(auth){
+                                //$location.path('/edit');
+                                console.log("Successfully signed in");
+                            }, function(error){
+                                $location.path('/');
+                                console.log("ERROR: user is NOT logged in!!");
+                            });
                         }]
                     }
                 })
@@ -45,6 +52,7 @@
     ]);
 
     app.factory('Auth', ['$firebaseAuth', function($firebaseAuth){
+        console.log("$firebaseAuth service invoked");
         return $firebaseAuth();
     }]);
 })();

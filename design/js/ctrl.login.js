@@ -14,11 +14,11 @@
             vm.apcLogin = function () {
                 Auth.$signInWithEmailAndPassword(vm.email, vm.password)
                     .then(function (firebaseUser) {
-                        console.log("Signed in as:", firebaseUser.uid);
+                        // console.log("Signed in as:", firebaseUser.uid);
                         $location.path('/edit');
                     })
                     .catch(function (error) {
-                        console.error("Authentication failed:", error);
+                        // console.error("Authentication failed:", error);
                         vm.error = error;
                     });
             }

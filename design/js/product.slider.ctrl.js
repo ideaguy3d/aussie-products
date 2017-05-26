@@ -17,40 +17,52 @@
             $scope.incrementLeft = false;
 
             var pgPositionTracker = [
-                {side: "initialState"},
-                {side: "right"},
-                {side: "right"},
-                {side: "right"}
+                {pos: "initialState"},
+                {pos: "right"},
+                {pos: "right"},
+                {pos: "right"}
             ];
 
             //-- public functions:
             $scope.updateActiveArea = function (index) {
                 switch (index) {
                     case 0:
-                        pgPositionTracker[0].side = "left";
-                        if (pgPositionTracker[1].side === "left" || pgPositionTracker[2].side === "left") {
+                        pgPositionTracker[0].pos = "left";
+                        if (pgPositionTracker[1].pos === "left" ||
+                            pgPositionTracker[2].pos === "left") {
                             removeIncrementLeft();
-                            pgPositionTracker[1].side = "right";
-                            pgPositionTracker[2].side = "right";
+                            pgPositionTracker[1].pos = "right";
+                            pgPositionTracker[2].pos = "right";
+                        } else if (pgPositionTracker[1].pos === "center") {
+                            pgPositionTracker[1].pos = "right";
                         }
+
+                        // The MOST critical aspect of this function
                         $scope.activeArea = -1;
                         break;
                     case 1:
-                        pgPositionTracker[1].side = "left";
-                        if (pgPositionTracker[2].side === "left") {
+                        pgPositionTracker[1].pos = "center";
+                        if (pgPositionTracker[2].pos === "left") {
                             removeIncrementLeft();
-                            pgPositionTracker[2].side = "right";
+                            pgPositionTracker[2].pos = "right";
                         }
+
+                        // The MOST critical aspect of this function
                         $scope.activeArea = 0;
                         break;
                     case 2:
-                        pgPositionTracker[2].side = "left";
+                        pgPositionTracker[2].pos = "center";
+                        if(pgPositionTracker[1].pos === "center") {
+                            pgPositionTracker[2].pos = "left";
+                        }
+                        // The MOST critical aspect of this function
                         $scope.activeArea = 1;
                         break;
                     case 3:
-                        pgPositionTracker[3].side = "left";
+                        pgPositionTracker[3].pos = "left";
+
+                        // The MOST critical aspect of this function
                         $scope.activeArea = 2;
-                        // domUpP2();
                         break;
                 }
 
@@ -72,57 +84,30 @@
                 }
             };
 
-            //-- private functions:
-            var posCheckLeft = function () {
-                return pgPositionTracker.every(function (elem) {
-                    return elem.side === "left";
-                });
-            };
-
+            // private functions
             var removeIncrementLeft = function () {
                 angular.element('.product-group.increment-left').each(function (i) {
                     // console.log(this);
                     angular.element(this).removeClass('increment-left');
-                    pgPositionTracker[i].side = "right";
+                    pgPositionTracker[i].pos = "right";
                 });
             };
 
             var domUpP1 = function (index) {
                 // give the DOM a moment to update
                 $timeout(function () {
-                    // pg = product group
                     var pgElem = ".product-group" + (index - 1),
                         pgSelector = angular.element(pgElem),
                         pgActive = pgSelector.hasClass('active');
+
                     if (pgActive) {
                         if (pgElem !== '.product-group2') {
                             //'.product-group2' should never increment-left because it's last
+                            // e.g. group0, group1, group2
                             pgSelector.addClass('increment-left');
                         }
                     }
                 }, 10);
-            };
-
-            var domUpP2 = function () {
-                var pg = angular.element('.product-group');
-                pg.each(function () {
-                    var elem = angular.element(this),
-                        isLeft = elem.hasClass('increment-left');
-                    if (!isLeft) {
-                        elem.css({
-                            "display": "none",
-                            "left": "-2000px"
-                        });
-                    }
-
-                });
-
-                $timeout(function () {
-                    pg.each(function () {
-                        var elem = angular.element(this);
-                        elem.css("display", "block");
-                    })
-                }, 500);
             };
         }
     ]);

@@ -3,17 +3,11 @@
 <section id="ng-app1" ng-cloak ng-app="ap-slider" ng-controller="apcCoreCtrl">
 	<br>
 
-	<!-----------ADMIN SIDE-------------->
-	<!-- Edit product slider prototype -->
-	<div id="j-product-slider-edit" ng-controller="apSliderEditCtrl" ng-if="!showSlider"
-	     ng-include="'design/views/product.slider.edit.view.html'"></div>
-
 
 	<!-------------CLIENT SIDE-------------->
 	<!-- Primary product slider prototype -->
 	<div id="j-product-slider" ng-controller="apSliderCtrl" ng-if="showSlider"
 	     ng-include="'design/views/product.slider.view.html'"></div>
-
 	<hr>
 	<!-------------------------------------------------------------->
 	<!-- random trial&error code to get everything up and running -->
@@ -21,7 +15,7 @@
 	<input type="text" ng-model="data.productDescription">
 	<h4>Product Description: {{ data.productDescription }}</h4>
 	<h1>{{2+2}} = 2+2</h1>
-	<h2>{{data.key1}}</h2>
+	<h2>{{ data.key1 }}</h2>
 
 	<!-- RealTimeDB test1 area -->
 	<ul>

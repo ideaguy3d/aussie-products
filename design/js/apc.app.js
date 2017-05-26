@@ -52,7 +52,6 @@
     ]);
 
     app.factory('Auth', ['$firebaseAuth', function($firebaseAuth){
-        console.log("$firebaseAuth service invoked");
         return $firebaseAuth();
     }]);
 })();

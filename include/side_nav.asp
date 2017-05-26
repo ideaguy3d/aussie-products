@@ -628,13 +628,15 @@
                 </tr>
                 <tr>
                 <td><div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>
+(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
                 </td>
                 </tr>
 				<tr>
@@ -642,29 +644,11 @@
                     <br /><img src="/nav_spacer.gif" width="200" height="15" /><div align="center">
      <div class="sidenav2">
      
-     <strong>Companies that we work with past/present:</strong><br />
-     <img src="/nav_spacer.gif" width="200" height="20" /><p>
-			  Tourism Australia<br />
-			  Seven Network Australia <br>
-			  AusTrade<br />
-			  MCI<br />
-			  Avon America<br />
-			  Avon Japan<br />
-			  Qantas<br />
-			  Maniscalco Stone<br />
-			  LinkedIn<br />
-			  JAG<br />
-			  Survivor<br />
-			  Harpo Productions<br />
-			  Paramount Studios<br />
-			  Google<br />
-              Yahoo!<br />
-              Somnamed<br />
-		    VISA <br />
-            The Ellen DeGeneres Show<br/>
+     <strong style="color: white; text-transform: uppercase; font-weight: lighter;">Companies that we work with past/present:</strong><br />
+     <img src="/nav_spacer.gif" width="200" height="20" />
 
-            	  
-		    <img src="/nav_spacer.gif" width="200" height="30" /><p></td>
+		    <img src="http://www.aussieproducts.com/images/may2017onward/companies-we-worked-with.png" alt="companies we worked with">
+    </div>  </td>
 				</tr>
 			</table>
   </tr>

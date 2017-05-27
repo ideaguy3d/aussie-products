@@ -8,10 +8,35 @@
     app.controller('apSliderCtrl', ['$scope', 'jProductGroup1Data', '$timeout',
         function ($scope, jProductGroup1Data, $timeout) {
             $scope.productsGroup1_title = "Customer View for AussieProducts.com";
+
+            // Initial Product Group Data
             $scope.apcCurrentProducts = jProductGroup1Data.Row1Group1; // will change to different product group later
+
+            // Row1 Data
+            $scope.apcRow1Group1 = jProductGroup1Data.Row1Group1;
             $scope.apcRow1Group2 = jProductGroup1Data.Row1Group2;
             $scope.apcRow1Group3 = jProductGroup1Data.Row1Group3;
             $scope.apcRow1Group4 = jProductGroup1Data.Row1Group4;
+
+            // Row2 Data
+            $scope.apcRow2Group1 = jProductGroup1Data.Row2Group1;
+            $scope.apcRow2Group2 = jProductGroup1Data.Row2Group2;
+            $scope.apcRow2Group3 = jProductGroup1Data.Row2Group3;
+            $scope.apcRow2Group4 = jProductGroup1Data.Row2Group4;
+
+            // Row3 Data
+            $scope.apcRow3Group1 = jProductGroup1Data.Row3Group1;
+            $scope.apcRow3Group2 = jProductGroup1Data.Row3Group2;
+            $scope.apcRow3Group3 = jProductGroup1Data.Row3Group3;
+            $scope.apcRow3Group4 = jProductGroup1Data.Row3Group4;
+
+            // Row4 Data
+            $scope.apcRow4Group1 = jProductGroup1Data.Row4Group1;
+            $scope.apcRow4Group2 = jProductGroup1Data.Row4Group2;
+            $scope.apcRow4Group3 = jProductGroup1Data.Row4Group3;
+            $scope.apcRow4Group4 = jProductGroup1Data.Row4Group4;
+
+            // public vars for carousel
             $scope.activeArea = -1;
             $scope.repetitionAmount = [0, 1, 2];
             $scope.incrementLeft = false;

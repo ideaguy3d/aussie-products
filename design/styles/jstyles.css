@@ -182,6 +182,33 @@ www.julius3d.com
     background-color: rgba(0, 0, 0, 0.5);
     padding-bottom: 12px; }
 
+#apc-sidenav-on-sale-btn {
+  display: inline-block;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #ba0000;
+  border: none;
+  border-radius: 16px;
+  box-shadow: -6px 9px rgba(0, 0, 0, 0.4);
+  width: 90%;
+  margin-bottom: 24px; }
+  #apc-sidenav-on-sale-btn span {
+    font-weight: 700;
+    position: relative; }
+  #apc-sidenav-on-sale-btn span::before {
+    content: '\2736';
+    position: absolute;
+    top: -18px;
+    right: 124px;
+    opacity: 1;
+    font-size: 27pt;
+    color: #0D2A81; }
+
 .search-wrap li {
   display: inline-block; }
 

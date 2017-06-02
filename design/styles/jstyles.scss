@@ -276,6 +276,36 @@ $poppie-green: #277611;
     }
 }
 
+#apc-sidenav-on-sale-btn {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #ba0000;
+    border: none;
+    border-radius: 16px;
+    box-shadow: -6px 9px rgba(0,0,0,0.4);
+    width: 90%;
+    margin-bottom: 24px;
+    span {
+        font-weight: 700;
+        position: relative;
+    }
+    span::before {
+        content: '\2736';
+        position: absolute;
+        top: -18px;
+        right: 124px;
+        opacity: 1;
+        font-size: 27pt;
+        color: $aussie-blue;
+    }
+}
+
 //------------------------------------------------------------------------------------
 
 //----------------------------------------

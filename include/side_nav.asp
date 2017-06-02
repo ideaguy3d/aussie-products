@@ -71,7 +71,13 @@
 <tr>
 <td>
 <div align="center">
-<img src="/spacer2.gif" width="6" height="9" /><a class="sidenav2" href="/products.asp?dept=252" data-flexmenu="flexmenu28" data-dir="h" data-offsets="8,0"><b>WHAT'S ON SALE!</a>
+<img src="/spacer2.gif" width="6" height="9" />
+<!--------------------------->
+<!-- What's on sale button -->
+<!--------------------------->
+<a id="apc-sidenav-on-sale-btn" class="sidenav2 " href="/products.asp?dept=252" data-flexmenu="flexmenu28" data-dir="h" data-offsets="8,0">
+    <span>WHAT'S ON SALE!</span>
+</a>
 <ul id="flexmenu28" class="flexdropdownmenu">
 <li><a href="/products.asp?dept=252">Australia</a></li> 
 <li><a href="/products.asp?dept=255">British and Irish</a></li>
